@@ -4,10 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.miu.lab2.ActivityLab2Binding
+import com.miu.lab2.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityLab2Binding
+    private lateinit var binding: ActivityMainBinding
 
     var arr = arrayOf(
         "Hamburger", "Pizza",
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_main)
-        binding = ActivityLab2Binding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.buttonDecide.setOnClickListener{
 //            Log.v("VerboseTag", "======-------+++++++++")
@@ -39,6 +40,6 @@ class MainActivity : AppCompatActivity() {
     }
     fun showMsg(msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-        binding.textViewResultValue.text = msg
+        binding.textView.text = msg
     }
 }
