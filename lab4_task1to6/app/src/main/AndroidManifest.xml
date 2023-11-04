@@ -12,7 +12,6 @@
         android:theme="@style/Theme.Lab4_task1to6"
         tools:targetApi="31">
 
-        <!-- Main Activity -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -22,7 +21,6 @@
             </intent-filter>
         </activity>
 
-        <!-- ShoppingCategoryActivity -->
         <activity
             android:name=".ShoppingCategoryActivity"
             android:parentActivityName=".MainActivity" >

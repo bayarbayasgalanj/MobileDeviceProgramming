@@ -51,7 +51,6 @@
         android:layout_below="@id/firstNameLabel"
         android:inputType="textPersonName" />
 
-    <!-- Repeat the pattern for the Last Name -->
     <TextView
         android:id="@+id/lastNameLabel"
         android:layout_width="match_parent"
@@ -68,7 +67,6 @@
         android:layout_below="@id/lastNameLabel"
         android:inputType="textPersonName" />
 
-    <!-- Repeat the pattern for the Email Address -->
     <TextView
         android:id="@+id/emailLabel"
         android:layout_width="match_parent"
@@ -85,7 +83,6 @@
         android:layout_below="@id/emailLabel"
         android:inputType="textEmailAddress" />
 
-    <!-- Repeat the pattern for the Password -->
     <TextView
         android:id="@+id/passwordLabel"
         android:layout_width="match_parent"

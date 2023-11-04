@@ -6,7 +6,6 @@
     android:orientation="vertical"
     android:padding="32dp">
 
-    <!-- Walmart logo -->
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,7 +13,6 @@
     android:layout_gravity="center_horizontal"
     android:layout_marginBottom="16dp" />
 
-    <!-- Sign in label -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,7 +21,6 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="24dp" />
 
-    <!-- Email EditText -->
     <EditText
         android:id="@+id/emailEditText"
         android:layout_width="match_parent"
@@ -32,7 +29,6 @@
         android:inputType="textEmailAddress"
         android:layout_marginBottom="16dp" />
 
-    <!-- Password EditText -->
     <EditText
         android:id="@+id/passwordEditText"
         android:layout_width="match_parent"
@@ -41,7 +37,6 @@
         android:inputType="textPassword"
         android:layout_marginBottom="16dp" />
 
-    <!-- Forget Password TextView -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,7 +48,6 @@
         android:textColor="@color/purple_700"
         android:layout_marginBottom="24dp" />
 
-    <!-- Sign In Button -->
     <Button
         android:id="@+id/signInButton"
         android:layout_width="match_parent"
@@ -63,7 +57,6 @@
     android:textColor="@color/white"
     android:layout_marginBottom="16dp" />
 
-    <!-- Register Account TextViews -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
