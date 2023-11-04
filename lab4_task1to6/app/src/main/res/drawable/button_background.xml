@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/purple_500" /> <!-- Solid color background using purple_500 from your resources -->
+            <corners android:radius="4dp" /> <!-- Rounded corners with a radius of 4dp -->
+        </shape>
+    </item>
+</selector>
