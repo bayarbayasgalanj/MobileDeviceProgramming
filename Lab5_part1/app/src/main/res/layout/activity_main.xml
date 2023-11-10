@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/question1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Question 1: What is the correct way to declare a variable in Kotlin?"
+        android:padding="4dp"/>
+
+    <RadioGroup
+        android:id="@+id/radio_group_question1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/option1_question1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="var variableName: Type"/>
+
+        <RadioButton
+            android:id="@+id/option2_question1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="variableName: Type"/>
+
+        <RadioButton
+            android:id="@+id/option3_question1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Type variableName"/>
+
+        <RadioButton
+            android:id="@+id/option4_question1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="declare variableName: Type"/>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/question2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Question 2: Which of these are valid Kotlin data types?"
+        android:padding="4dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:id="@+id/checkbox_option1_question2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Int"/>
+
+        <CheckBox
+            android:id="@+id/checkbox_option2_question2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="String"/>
+
+        <CheckBox
+            android:id="@+id/checkbox_option3_question2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Longint"/>
+
+        <CheckBox
+            android:id="@+id/checkbox_option4_question2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Float"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"/>
+
+    <Button
+        android:id="@+id/reset_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset"/>
+</LinearLayout>
