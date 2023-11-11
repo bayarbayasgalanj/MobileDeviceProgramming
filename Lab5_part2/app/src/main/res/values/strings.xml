@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Lab5_part2</string>
+    <string name="image_description">image_description</string>
+
+    <string-array name="products">
+        <item>iPad</item>
+        <item>iMac</item>
+        <item>MacPro</item>
+        <item>iPhone</item>
+    </string-array>
+    <array name="products_desc">
+        <item>iPad Pro 11-inch</item>
+        <item>16-core CPU\n16GB RAM</item>
+        <item>13 inch Pro\n256GB Hard</item>
+        <item>15 pro max</item>
+    </array>
+
+    <array name="detail">
+        <item>
+        </item>
+        <item>
+        </item>
+        <item>
+        </item>
+        <item>
+        </item>
+        <item>
+        </item>
+        <item>
+        </item>
+    </array>
+</resources>
