@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_recipes"
+
+        android:title="@string/recipes" />
+    <item
+        android:id="@+id/navigation_meal_planner"
+
+        android:title="@string/meal_planner" />
+    <item
+        android:id="@+id/navigation_blog"
+
+        android:title="@string/blog" />
+    <item
+        android:id="@+id/navigation_contact"
+
+        android:title="@string/contact" />
+    <item
+        android:id="@+id/navigation_about_me"
+
+        android:title="@string/about_me" />
+</menu>
