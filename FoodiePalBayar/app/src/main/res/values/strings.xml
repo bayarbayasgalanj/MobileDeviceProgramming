@@ -5,4 +5,9 @@
     <string name="contact">Contact</string>
     <string name="blog">Blog</string>
     <string name="meal_planner">Meal Planner</string>
+    <string name="app_logo_description">app_logo_description</string>
+    <string name="username_hint">username_hint</string>
+    <string name="password_hint">password_hint</string>
+    <string name="login_button_label">login_button_label</string>
+
 </resources>

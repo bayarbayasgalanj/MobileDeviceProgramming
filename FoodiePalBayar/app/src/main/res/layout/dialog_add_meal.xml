@@ -5,20 +5,14 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/meal_weekday"
+    <EditText
+        android:id="@+id/editTextWeekday"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="8dp"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/meal_mealplan"
+        android:hint="WeekDay" />
+    <EditText
+        android:id="@+id/editTextMealplan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp" />
-
-
-
+        android:hint="Meal Plan" />
 </LinearLayout>

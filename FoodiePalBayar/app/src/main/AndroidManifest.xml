@@ -11,15 +11,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodiePalBayar"
         tools:targetApi="31">
+
+        <!-- Add LoginActivity as the launcher activity -->
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
+            android:label="Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Define MainActivity as another activity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+        </activity>
+
     </application>
 
 </manifest>
