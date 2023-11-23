@@ -13,9 +13,13 @@ class AddDialogFragment : DialogFragment() {
     interface AddMealListener {
         fun onMealAdded(meal: Meal)
     }
+    interface AddBlogListener {
+        fun onBlogAdded(blog: Blog)
+    }
     private var layoutId: Int = R.layout.dialog_add_recipe
     var listener: AddRecipeListener? = null
     var listenerMeal: AddMealListener? = null
+    var listenerBlog: AddBlogListener? = null
 
     companion object {
         fun newInstance(layoutId: Int): AddDialogFragment {
@@ -26,14 +30,12 @@ class AddDialogFragment : DialogFragment() {
             return fragment
         }
     }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             layoutId = it.getInt("layoutId")
         }
     }
-
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder = MaterialAlertDialogBuilder(requireContext())
         val inflater = requireActivity().layoutInflater
@@ -47,7 +49,6 @@ class AddDialogFragment : DialogFragment() {
                     val imageResource = 0 // Placeholder for actual image resource ID
                     val cookingTime = "Some Time" // Placeholder for actual cooking time
                     val rating = 5.0f // Placeholder for actual rating
-
                     val newRecipe = Recipe(title, imageResource, cookingTime, rating)
                     listener?.onRecipeAdded(newRecipe)
                 } else if (layoutId == R.layout.dialog_add_meal) {
@@ -55,6 +56,11 @@ class AddDialogFragment : DialogFragment() {
                     val mealplan = view.findViewById<EditText>(R.id.editTextMealplan).text.toString()
                     val newMeal = Meal(weekday, mealplan)
                     listenerMeal?.onMealAdded(newMeal)
+                } else if (layoutId == R.layout.dialog_add_blog) {
+                    val title = view.findViewById<EditText>(R.id.editTextTitle).text.toString()
+                    val article = view.findViewById<EditText>(R.id.editTextArticle).text.toString()
+                    val newBlog = Blog(title, article)
+                    listenerBlog?.onBlogAdded(newBlog)
                 }
             }
             .setNegativeButton("Cancel") { dialog, id ->

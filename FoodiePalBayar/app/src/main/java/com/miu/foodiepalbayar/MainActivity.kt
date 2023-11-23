@@ -34,33 +34,29 @@ class MainActivity : AppCompatActivity() {
                 return when (position) {
                     0 -> RecipesFragment()
                     1 -> MealFragment()
-                    // 2 -> BlogFragment()
-                    // 3 -> ContactFragment()
-                    // 4 -> AboutMeFragment()
+                    2 -> BlogFragment()
+                    3 -> ContactFragment()
+                    4 -> AboutMeFragment()
                     else -> RecipesFragment() // Fallback to the RecipesFragment
                 }
             }
         }
 
-        // Set the ViewPager2 to respond to tab selections
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_recipes -> viewPager.currentItem = 0
                 R.id.navigation_meal_planner -> viewPager.currentItem = 1
-                // R.id.navigation_blog -> viewPager.currentItem = 2
-                // R.id.navigation_contact -> viewPager.currentItem = 3
-                // R.id.navigation_about_me -> viewPager.currentItem = 4
+                R.id.navigation_blog -> viewPager.currentItem = 2
+                R.id.navigation_contact -> viewPager.currentItem = 3
+                R.id.navigation_about_me -> viewPager.currentItem = 4
             }
             true
         }
 
-        // Sync the ViewPager page with the selected bottom navigation item
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 bottomNavigationView.menu.getItem(position).isChecked = true
-
-                // Here, we decide what to do with the FAB based on the page
-                if (position == 0) { // Assuming position 1 is MealFragment
+                if (position == 0) {
                     fabAddButton.show()
                     fabAddButton.setOnClickListener {
                         val currentFragmentTag = "f${viewPager.currentItem}"
@@ -77,12 +73,11 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                 }
-                else if (position == 1) { // Assuming position 1 is MealFragment
+                else if (position == 1) {
                     fabAddButton.show()
                     fabAddButton.setOnClickListener {
                         val currentFragmentTag = "f${viewPager.currentItem}"
                         val currentFragment = supportFragmentManager.findFragmentByTag(currentFragmentTag)
-
                         if (currentFragment is MealFragment) {
                             val addMealDialog = AddDialogFragment.newInstance(R.layout.dialog_add_meal)
                             addMealDialog.listenerMeal = object : AddDialogFragment.AddMealListener {
@@ -93,7 +88,24 @@ class MainActivity : AppCompatActivity() {
                             addMealDialog.show(supportFragmentManager, "addMeal")
                         }
                     }
-                } else {
+                }
+                else if (position == 2) {
+                    fabAddButton.show()
+                    fabAddButton.setOnClickListener {
+                        val currentFragmentTag = "f${viewPager.currentItem}"
+                        val currentFragment = supportFragmentManager.findFragmentByTag(currentFragmentTag)
+                        if (currentFragment is BlogFragment) {
+                            val addBlogDialog = AddDialogFragment.newInstance(R.layout.dialog_add_blog)
+                            addBlogDialog.listenerBlog = object : AddDialogFragment.AddBlogListener {
+                                override fun onBlogAdded(blog: Blog) {
+                                    currentFragment.onBlogAdded(blog)
+                                }
+                            }
+                            addBlogDialog.show(supportFragmentManager, "addBlog")
+                        }
+                    }
+                }
+                else {
                     fabAddButton.hide() // Hide the button for other pages
                 }
             }
