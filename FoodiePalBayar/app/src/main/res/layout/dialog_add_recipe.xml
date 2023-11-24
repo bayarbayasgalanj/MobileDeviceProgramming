@@ -1,17 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp">
 
+    <!-- ImageView for displaying the selected image -->
+    <ImageView
+        android:id="@+id/recipe_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image_placeholder" /> <!-- Set a placeholder image -->
+
+    <!-- Button for selecting an image from the device -->
+    <Button
+        android:id="@+id/select_image_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Image" />
+
+    <!-- EditText for recipe title -->
     <EditText
         android:id="@+id/editTextRecipeTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Recipe Title" />
 
-    <!-- Add other EditTexts for imageResource, cookingTime, and rating -->
-    <!-- For imageResource, you might want to use an ImageView and a button to select an image -->
+    <!-- EditText for cooking time -->
+    <EditText
+        android:id="@+id/editTextCookingTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Cooking Time"
+        android:inputType="text" />
+
+    <!-- RatingBar for recipe rating -->
+    <RatingBar
+        android:id="@+id/recipe_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="0.5" />
 
 </LinearLayout>

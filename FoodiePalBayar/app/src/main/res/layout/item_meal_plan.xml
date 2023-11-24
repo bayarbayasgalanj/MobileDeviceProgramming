@@ -3,22 +3,31 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    >
 
-    <TextView
-        android:id="@+id/meal_weekday"
+    <TableLayout
+        android:id="@+id/tableLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="8dp"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:stretchColumns="*">
 
-    <TextView
-        android:id="@+id/meal_mealplan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="14sp" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/meal_weekday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-
-
+            <TextView
+                android:id="@+id/meal_mealplan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                android:textSize="16sp" />
+        </TableRow>
+    </TableLayout>
 </LinearLayout>

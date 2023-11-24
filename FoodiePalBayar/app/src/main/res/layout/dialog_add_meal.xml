@@ -5,11 +5,11 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <EditText
-        android:id="@+id/editTextWeekday"
+    <Spinner
+        android:id="@+id/spinnerWeekday"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="WeekDay" />
+        android:hint="Select WeekDay" />
     <EditText
         android:id="@+id/editTextMealplan"
         android:layout_width="match_parent"

@@ -13,8 +13,13 @@ class BlogFragment : Fragment(), AddDialogFragment.AddBlogListener  {
     private lateinit var recyclerView: RecyclerView
     private lateinit var blogAdapter: BlogAdapter
     private val blogs: MutableList<Blog> = mutableListOf(
-        Blog("Chocolate Cake", "45 mins"),
-        Blog("Pasta","30 mins")
+        Blog("Blog 1", "This is the content of Blog 1."),
+        Blog("Blog 2", "Here's the content of Blog 2."),
+        Blog("Blog 3", "This is the content of Blog 3."),
+        Blog("Blog 4", "Here's the content of Blog 4."),
+        Blog("Blog 5", "This is the content of Blog 5."),
+        Blog("Blog 6", "Here's the content of Blog 6."),
+        Blog("Blog 7", "This is the content of Blog 7.")
     )
 
     override fun onCreateView(

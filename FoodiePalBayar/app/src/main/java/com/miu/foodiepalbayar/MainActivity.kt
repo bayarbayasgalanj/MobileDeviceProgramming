@@ -5,6 +5,7 @@ package com.miu.foodiepalbayar
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var viewPager: ViewPager2
     private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var topNavigationView: BottomNavigationView
     private lateinit var fabAddButton: FloatingActionButton
 
     @SuppressLint("MissingInflatedId")
@@ -24,7 +26,8 @@ class MainActivity : AppCompatActivity() {
 
         viewPager = findViewById(R.id.viewpager)
         bottomNavigationView = findViewById(R.id.bottom_navigation)
-        fabAddButton = findViewById(R.id.fab_add_button) // Assign FAB from the layout
+        topNavigationView = findViewById(R.id.top_navigation)
+        fabAddButton = findViewById(R.id.fab_add_button)
 
         // Set up the ViewPager2 with an adapter and a callback to handle page changes
         viewPager.adapter = object : FragmentStateAdapter(this) {
@@ -42,7 +45,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        bottomNavigationView.setOnItemSelectedListener { item ->
+        val navigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_recipes -> viewPager.currentItem = 0
                 R.id.navigation_meal_planner -> viewPager.currentItem = 1
@@ -52,6 +55,9 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener)
+        topNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener)
 
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
