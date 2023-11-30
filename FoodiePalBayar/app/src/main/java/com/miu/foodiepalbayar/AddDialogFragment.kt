@@ -65,7 +65,10 @@ class AddDialogFragment : DialogFragment() {
             e.printStackTrace()
         }
         builder.setView(view)
-            .setTitle(if (layoutId == R.layout.dialog_add_recipe) "Add New Recipe" else "Add New Meal")
+            .setTitle(
+                if (layoutId == R.layout.dialog_add_recipe) {"Add New Recipe"}
+                else if(layoutId == R.layout.dialog_add_blog) {"Add New Blog"}
+                else "Add New Meal")
             .setPositiveButton("Add") { dialog, id ->
                 if (layoutId == R.layout.dialog_add_recipe) {
                     val title = view.findViewById<EditText>(R.id.editTextRecipeTitle).text.toString()
