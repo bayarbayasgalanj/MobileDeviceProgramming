@@ -4,7 +4,6 @@
 ![ss1.png](ss_code2.png)
 # Application Screen shots
 ![ss1.png](ss1.png)
-![ss1.png](ss1.png)
 ![ss2.png](ss2.png)
 ![ss3.png](ss3.png)
 ![ss4.png](ss4.png)
