@@ -55,13 +55,15 @@ class AddDialogFragment : DialogFragment() {
         val builder = MaterialAlertDialogBuilder(requireContext())
         val inflater = requireActivity().layoutInflater
         val view = inflater.inflate(layoutId, null)
-
-        val spinnerWeekday = view.findViewById<Spinner>(R.id.spinnerWeekday)
-        val weekdays = arrayOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, weekdays)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinnerWeekday.adapter = adapter
-
+        try {
+            val spinnerWeekday = view.findViewById<Spinner>(R.id.spinnerWeekday)
+            val weekdays = arrayOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+            val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, weekdays)
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinnerWeekday.adapter = adapter
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
         builder.setView(view)
             .setTitle(if (layoutId == R.layout.dialog_add_recipe) "Add New Recipe" else "Add New Meal")
             .setPositiveButton("Add") { dialog, id ->
