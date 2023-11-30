@@ -1,6 +1,8 @@
 # Bayar Foodie Pal App
+# Code structure
 ![ss1.png](ss_code1.png)
 ![ss1.png](ss_code2.png)
+# Application Screen shots
 ![ss1.png](ss1.png)
 ![ss1.png](ss1.png)
 ![ss2.png](ss2.png)
