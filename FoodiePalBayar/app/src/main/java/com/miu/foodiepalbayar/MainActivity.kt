@@ -1,71 +1,66 @@
-// MainActivity.kt
-
 package com.miu.foodiepalbayar
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.Fragment
-import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.tabs.TabLayoutMediator
+import com.miu.foodiepalbayar.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var viewPager: ViewPager2
-    private lateinit var bottomNavigationView: BottomNavigationView
-    private lateinit var topNavigationView: BottomNavigationView
-    private lateinit var fabAddButton: FloatingActionButton
+    private lateinit var mainBinding: ActivityMainBinding
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        mainBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(mainBinding.root)
 
-        viewPager = findViewById(R.id.viewpager)
-        bottomNavigationView = findViewById(R.id.bottom_navigation)
-        topNavigationView = findViewById(R.id.top_navigation)
-        fabAddButton = findViewById(R.id.fab_add_button)
+        val fragments = listOf(
+            RecipesFragment(),
+            MealFragment(),
+            BlogFragment(),
+            ContactFragment(),
+            AboutMeFragment()
+        )
+        val adapter = ViewPagerAdapter(fragments, supportFragmentManager, lifecycle)
+        mainBinding.viewPager.adapter = adapter
 
-        // Set up the ViewPager2 with an adapter and a callback to handle page changes
-        viewPager.adapter = object : FragmentStateAdapter(this) {
-            override fun getItemCount(): Int = 5 // We have 5 tabs
-
-            override fun createFragment(position: Int): Fragment {
-                return when (position) {
-                    0 -> RecipesFragment()
-                    1 -> MealFragment()
-                    2 -> BlogFragment()
-                    3 -> ContactFragment()
-                    4 -> AboutMeFragment()
-                    else -> RecipesFragment() // Fallback to the RecipesFragment
-                }
+        TabLayoutMediator(mainBinding.tabLayout, mainBinding.viewPager) { tab, position ->
+            tab.text = when (position) {
+                0 -> "Recipes"
+                1 -> "Meal Planner"
+                2 -> "Blog"
+                3 -> "Contact"
+                4 -> "About Me"
+                else -> "Unknown"
             }
-        }
+        }.attach()
 
-        val navigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.navigation_recipes -> viewPager.currentItem = 0
-                R.id.navigation_meal_planner -> viewPager.currentItem = 1
-                R.id.navigation_blog -> viewPager.currentItem = 2
-                R.id.navigation_contact -> viewPager.currentItem = 3
-                R.id.navigation_about_me -> viewPager.currentItem = 4
+        setupBottomNavigationView()
+        setupFloatingActionButton()
+    }
+
+    private fun setupBottomNavigationView() {
+        mainBinding.bottomNavigation.setOnItemSelectedListener { item ->
+            mainBinding.viewPager.currentItem = when (item.itemId) {
+                R.id.navigation_recipes -> 0
+                R.id.navigation_meal_planner -> 1
+                R.id.navigation_blog -> 2
+                R.id.navigation_contact -> 3
+                R.id.navigation_about_me -> 4
+                else -> 0
             }
             true
         }
+    }
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener)
-        topNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener)
-
-        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+    private fun setupFloatingActionButton() {
+        mainBinding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
-                bottomNavigationView.menu.getItem(position).isChecked = true
                 if (position == 0) {
-                    fabAddButton.show()
-                    fabAddButton.setOnClickListener {
-                        val currentFragmentTag = "f${viewPager.currentItem}"
+                    mainBinding.fabAddButton.show()
+                    mainBinding.fabAddButton.setOnClickListener {
+                        val currentFragmentTag = "f${mainBinding.viewPager.currentItem}"
                         val currentFragment = supportFragmentManager.findFragmentByTag(currentFragmentTag)
 
                         if (currentFragment is RecipesFragment) {
@@ -78,11 +73,10 @@ class MainActivity : AppCompatActivity() {
                             addRecipeDialog.show(supportFragmentManager, "addRecipe")
                         }
                     }
-                }
-                else if (position == 1) {
-                    fabAddButton.show()
-                    fabAddButton.setOnClickListener {
-                        val currentFragmentTag = "f${viewPager.currentItem}"
+                } else if (position == 1) {
+                    mainBinding.fabAddButton.show()
+                    mainBinding.fabAddButton.setOnClickListener {
+                        val currentFragmentTag = "f${mainBinding.viewPager.currentItem}"
                         val currentFragment = supportFragmentManager.findFragmentByTag(currentFragmentTag)
                         if (currentFragment is MealFragment) {
                             val addMealDialog = AddDialogFragment.newInstance(R.layout.dialog_add_meal)
@@ -94,11 +88,10 @@ class MainActivity : AppCompatActivity() {
                             addMealDialog.show(supportFragmentManager, "addMeal")
                         }
                     }
-                }
-                else if (position == 2) {
-                    fabAddButton.show()
-                    fabAddButton.setOnClickListener {
-                        val currentFragmentTag = "f${viewPager.currentItem}"
+                } else if (position == 2) {
+                    mainBinding.fabAddButton.show()
+                    mainBinding.fabAddButton.setOnClickListener {
+                        val currentFragmentTag = "f${mainBinding.viewPager.currentItem}"
                         val currentFragment = supportFragmentManager.findFragmentByTag(currentFragmentTag)
                         if (currentFragment is BlogFragment) {
                             val addBlogDialog = AddDialogFragment.newInstance(R.layout.dialog_add_blog)
@@ -110,11 +103,12 @@ class MainActivity : AppCompatActivity() {
                             addBlogDialog.show(supportFragmentManager, "addBlog")
                         }
                     }
-                }
-                else {
-                    fabAddButton.hide() // Hide the button for other pages
+                } else {
+                    mainBinding.fabAddButton.hide()
                 }
             }
         })
     }
+
+    // Rest of your code...
 }
