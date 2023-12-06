@@ -9,5 +9,6 @@
     <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
     <string name="login_button_label">Login</string>
+    <string name="welcome_message">Welcome Bayar FoodPal App</string>
 
 </resources>

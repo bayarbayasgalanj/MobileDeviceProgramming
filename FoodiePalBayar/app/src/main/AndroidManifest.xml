@@ -30,6 +30,10 @@
             android:exported="true">
         </activity>
 
+        <!-- Define other activities as needed -->
+        <activity
+            android:name=".SplashActivity"
+            android:label="@string/app_name">
+        </activity>
     </application>
-
 </manifest>

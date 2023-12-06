@@ -36,11 +36,9 @@ class LoginActivity : AppCompatActivity() {
                 if (isAuthenticated) {
                     storeCredentials(enteredUsername, enteredPassword)
                     Toast.makeText(this, "Login Successful", Toast.LENGTH_LONG).show()
-
-                    val mainActivityIntent = Intent(this, MainActivity::class.java)
-                    startActivity(mainActivityIntent)
-                    finish()
-
+                    val splashActivityIntent = Intent(this, SplashActivity::class.java)
+                    startActivity(splashActivityIntent)
+                    finish() // Close the LoginActivity
                 } else {
                     Toast.makeText(this, "Invalid credentials.", Toast.LENGTH_LONG).show()
                 }
