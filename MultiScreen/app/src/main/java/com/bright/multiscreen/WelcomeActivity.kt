@@ -7,6 +7,7 @@ class WelcomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
         val textView: TextView = findViewById(R.id.textView)
+        // Write the necessary code snippet
         val username = intent.getStringExtra("username")
         textView.text = "Welcome $username"
     }

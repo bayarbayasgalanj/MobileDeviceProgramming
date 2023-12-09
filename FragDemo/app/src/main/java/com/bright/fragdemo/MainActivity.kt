@@ -15,9 +15,11 @@ class MainActivity : AppCompatActivity() {
             FirstFragment(),
             SecondFragment()
         )
+        //Write code to instantiate the ViewPagerAdapter
         val adapter = ViewPagerAdapter(fragments, supportFragmentManager, lifecycle)
+        // Write code to attach the adapter to the ViewPager2
         mainBinding.viewPager.adapter = adapter
-
+        // Write code to attach the TabLayout to ViewPager2 using TabLayoutMediator
         TabLayoutMediator(mainBinding.tabLayout, mainBinding.viewPager) { tab, position ->
             tab.text = when(position) {
                 0 -> "First"

@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
         val usernameEditText: EditText = findViewById(R.id.editTextText)
         val passwordEditText: EditText = findViewById(R.id.editTextTextPassword)
         val loginButton: Button = findViewById(R.id.button)
+        //Write the necessary code snippet
         loginButton.setOnClickListener {
             val username = usernameEditText.text.toString()
             val password = passwordEditText.text.toString()
