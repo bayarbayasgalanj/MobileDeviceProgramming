@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">GardeningJournalBayar</string>
+    <string name="add_plant_button_description">add_plant_button_description</string>
+    <string name="first_fragment">First fragment</string>
+    <string name="second_fragment">Second fragment</string>
+</resources>

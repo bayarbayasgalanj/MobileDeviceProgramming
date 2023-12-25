@@ -1,0 +1,39 @@
+<!-- res/navigation/nav_graph.xml -->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <!-- Home Fragment -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.gardeningjournalbayar.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_plant_details_fragment"
+            app:destination="@id/plantDetailsFragment" />
+    </fragment>
+
+    <!-- Garden Log Fragment -->
+    <fragment
+        android:id="@+id/gardenLogFragment"
+        android:name="com.example.gardeningjournalbayar.SecondFragment"
+        android:label="Garden Log"
+        tools:layout="@layout/fragment_second">
+        <!-- Add actions and/or arguments as needed -->
+    </fragment>
+
+    <!-- Plant Details Fragment -->
+    <fragment
+        android:id="@+id/plantDetailsFragment"
+        android:name="com.example.gardeningjournalbayar.PlantDetailsFragment"
+        android:label="Plant Details"
+        tools:layout="@layout/fragment_plant_details">
+        <argument
+            android:name="plantId"
+            app:argType="integer" />
+    </fragment>
+    <!-- Add more fragments and actions as needed -->
+</navigation>
