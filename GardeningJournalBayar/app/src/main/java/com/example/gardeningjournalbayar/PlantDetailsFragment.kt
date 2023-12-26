@@ -30,10 +30,10 @@ class PlantDetailsFragment : Fragment() {
         }
     }
     private fun updateUIWithPlantDetails(plant: Plant, view: View) {
-        view.findViewById<TextView>(R.id.textViewPlantId).text = "ID is ${plant.id}"
-        view.findViewById<TextView>(R.id.textViewPlantName).text = plant.name
-        view.findViewById<TextView>(R.id.textViewPlantType).text = plant.type
-        view.findViewById<TextView>(R.id.textViewWateringFrequency).text = "Water every ${plant.wateringFrequency} days"
-        view.findViewById<TextView>(R.id.textViewPlantingDate).text = "Planted on ${plant.plantingDate}"
+        view.findViewById<TextView>(R.id.textViewPlantId).text = "ID: ${plant.id}"
+        view.findViewById<TextView>(R.id.textViewPlantName).text = "Plant Name: ${plant.name}"
+        view.findViewById<TextView>(R.id.textViewPlantType).text = "Type: ${plant.type}"
+        view.findViewById<TextView>(R.id.textViewWateringFrequency).text = "Watering Frequency: ${plant.wateringFrequency} days"
+        view.findViewById<TextView>(R.id.textViewPlantingDate).text = "Planting Date: ${plant.plantingDate}"
     }
 }
