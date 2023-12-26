@@ -11,6 +11,7 @@ interface PlantDao {
     @Query("SELECT * FROM plants WHERE id = :plantId")
     fun getPlantById(plantId: Int): LiveData<Plant>
     @Insert
-    suspend fun addPlant(plant: Plant)
-
+    fun addPlant(plant: Plant)
+    @Query("SELECT COUNT(*) FROM plants")
+    suspend fun getPlantCount(): Int
 }

@@ -6,11 +6,9 @@ import androidx.room.PrimaryKey
 data class Plant(
 
     @PrimaryKey(autoGenerate = true)
-
     val id: Int = 0,
-
     val name: String,
-
     val type: String,
-
+    val wateringFrequency: Int,
+    val plantingDate: String
 )

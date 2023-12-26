@@ -14,11 +14,13 @@ class PlantRepository(application: Application) {
         plantDao = database.plantDao()
         allPlants = plantDao.getAllPlants()
     }
-
     fun getPlantById(plantId: Int): LiveData<Plant> {
         return plantDao.getPlantById(plantId)
     }
-    suspend fun insert(plant: Plant) {
+    fun insert(plant: Plant) {
         plantDao.addPlant(plant)
+    }
+    suspend fun isDatabaseEmpty(): Boolean {
+        return plantDao.getPlantCount() == 0
     }
 }

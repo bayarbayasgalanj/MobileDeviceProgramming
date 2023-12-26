@@ -14,15 +14,9 @@
         <action
             android:id="@+id/action_home_to_plant_details_fragment"
             app:destination="@id/plantDetailsFragment" />
-    </fragment>
-
-    <!-- Garden Log Fragment -->
-    <fragment
-        android:id="@+id/gardenLogFragment"
-        android:name="com.example.gardeningjournalbayar.SecondFragment"
-        android:label="Garden Log"
-        tools:layout="@layout/fragment_second">
-        <!-- Add actions and/or arguments as needed -->
+        <action
+            android:id="@+id/action_add_plant"
+            app:destination="@id/addPlantFragment" />
     </fragment>
 
     <!-- Plant Details Fragment -->
@@ -35,5 +29,15 @@
             android:name="plantId"
             app:argType="integer" />
     </fragment>
-    <!-- Add more fragments and actions as needed -->
+
+    <!-- Add Plant Fragment -->
+    <fragment
+        android:id="@+id/addPlantFragment"
+        android:name="com.example.gardeningjournalbayar.AddPlantFragment"
+        android:label="Add Plant"
+        tools:layout="@layout/adding_plant">
+        <action
+            android:id="@+id/action_addPlant_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>
