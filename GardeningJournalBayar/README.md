@@ -25,3 +25,7 @@
 ![ss8.png](ss8.png)
 # res/navigation/nav_graph.xml
 ![ss9.png](ss9.png)
+# HomeViewModelFactory
+![ss10.png](ss10.png)
+# HomeViewModel
+![ss11.png](ss11.png)

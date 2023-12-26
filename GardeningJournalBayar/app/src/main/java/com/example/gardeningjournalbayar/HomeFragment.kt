@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,6 +17,9 @@ class HomeFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var plantAdapter: PlantAdapter
     private lateinit var plantRepository: PlantRepository
+    private val viewModel: HomeViewModel by viewModels {
+        HomeViewModelFactory(plantRepository)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,18 +34,22 @@ class HomeFragment : Fragment() {
         }
         recyclerView.adapter = plantAdapter
         plantRepository = PlantRepository(requireActivity().application)
-        plantRepository.allPlants.observe(viewLifecycleOwner) { plants ->
-            plantAdapter.setPlants(plants)
-        }
         val addButton: FloatingActionButton = view.findViewById(R.id.button_add)
         addButton.setOnClickListener {
             navigateToAddPlantFragment()
         }
         return view
     }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.allPlants.observe(viewLifecycleOwner) { plants ->
+            plantAdapter.setPlants(plants)
+        }
+    }
     private fun navigateToAddPlantFragment() {
         val action = HomeFragmentDirections.actionAddPlant()
         findNavController().navigate(action)
     }
 }
+
 
