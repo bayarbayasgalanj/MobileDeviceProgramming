@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_blog"
+        android:title="Blog" />
+    <item
+        android:id="@+id/navigation_blog1"
+        android:title="Blog2" />
+</menu>

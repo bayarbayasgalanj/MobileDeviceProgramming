@@ -7,12 +7,9 @@
     tools:context=".FirstFragment">
 
 
-    <TextView
-        android:textStyle="bold"
-        android:textSize="40dp"
-        android:textColor="@color/white"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/blogs_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/first_fragment" />
+        android:layout_height="match_parent" />
 
 </FrameLayout>
