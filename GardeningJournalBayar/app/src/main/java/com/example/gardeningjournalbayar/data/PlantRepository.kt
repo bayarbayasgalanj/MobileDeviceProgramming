@@ -4,11 +4,8 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 
 class PlantRepository(application: Application) {
-
     private val plantDao: PlantDao
-
     val allPlants: LiveData<List<Plant>>
-
     init {
         val database = PlantDatabase.getDatabase(application)
         plantDao = database.plantDao()

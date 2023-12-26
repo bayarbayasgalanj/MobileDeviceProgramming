@@ -4,8 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
-
-    <!-- Home Fragment -->
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.gardeningjournalbayar.HomeFragment"
@@ -18,8 +16,6 @@
             android:id="@+id/action_add_plant"
             app:destination="@id/addPlantFragment" />
     </fragment>
-
-    <!-- Plant Details Fragment -->
     <fragment
         android:id="@+id/plantDetailsFragment"
         android:name="com.example.gardeningjournalbayar.PlantDetailsFragment"
@@ -29,8 +25,6 @@
             android:name="plantId"
             app:argType="integer" />
     </fragment>
-
-    <!-- Add Plant Fragment -->
     <fragment
         android:id="@+id/addPlantFragment"
         android:name="com.example.gardeningjournalbayar.AddPlantFragment"

@@ -24,14 +24,12 @@ class AddPlantFragment : Fragment() {
     private lateinit var editWateringFrequency: EditText
     private lateinit var editPlantingDate: EditText
     private lateinit var buttonSave: FloatingActionButton
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.adding_plant, container, false)
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         editName = view.findViewById(R.id.editName)
